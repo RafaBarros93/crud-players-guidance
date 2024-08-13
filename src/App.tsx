@@ -1,8 +1,7 @@
-import { Authenticated, Refine, GitHubBanner } from "@refinedev/core";
+import { Refine } from "@refinedev/core";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
 import {
-  AuthPage,
   ErrorComponent,
   useNotificationProvider,
   RefineThemes,
@@ -11,28 +10,23 @@ import {
 
 import { ChakraProvider } from "@chakra-ui/react";
 import routerBindings, {
-  CatchAllNavigate,
   DocumentTitleHandler,
   NavigateToResource,
   UnsavedChangesNotifier,
 } from "@refinedev/react-router-v6";
-import { DataProvider } from "@refinedev/strapi-v4";
-import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
-import { authProvider, axiosInstance } from "./authProvider";
-import { API_URL } from "./constants";
 
-import { PostCreate, PostEdit, PostList, PostShow } from "./pages/posts";
+import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
+
+import { PlayerCreate, PostEdit, PostList } from "./pages/players";
+import { dataProvider } from "./refine/refineDataProvider";
 
 function App() {
   return (
     <BrowserRouter>
-      <GitHubBanner />
       <RefineKbarProvider>
-        {/* You can change the theme colors here. example: theme={RefineThemes.Magenta} */}
         <ChakraProvider theme={RefineThemes.Blue}>
           <Refine
-            authProvider={authProvider}
-            dataProvider={DataProvider(`${API_URL}/api`, axiosInstance)}
+            dataProvider={dataProvider}
             notificationProvider={useNotificationProvider}
             routerProvider={routerBindings}
             options={{
@@ -42,11 +36,11 @@ function App() {
             }}
             resources={[
               {
-                name: "posts",
-                list: "/posts",
-                show: "/posts/show/:id",
-                create: "/posts/create",
-                edit: "/posts/edit/:id",
+                name: "players",
+                list: "/players",
+                show: "/players/show/:id",
+                create: "/players/create",
+                edit: "/players/edit/:id",
                 meta: {
                   canDelete: true,
                 },
@@ -56,63 +50,24 @@ function App() {
             <Routes>
               <Route
                 element={
-                  <Authenticated
-                    key="authenticated-routes"
-                    fallback={<CatchAllNavigate to="/login" />}
-                  >
-                    <ThemedLayoutV2>
-                      <Outlet />
-                    </ThemedLayoutV2>
-                  </Authenticated>
+                  <ThemedLayoutV2>
+                    <Outlet />
+                  </ThemedLayoutV2>
                 }
               >
                 <Route
                   index
-                  element={<NavigateToResource resource="posts" />}
+                  element={<NavigateToResource resource="players" />}
                 />
 
-                <Route path="/posts">
+                <Route path="/players">
                   <Route index element={<PostList />} />
-                  <Route path="/posts/show/:id" element={<PostShow />} />
-                  <Route path="/posts/create" element={<PostCreate />} />
-                  <Route path="/posts/edit/:id" element={<PostEdit />} />
+                  <Route path="/players/create" element={<PlayerCreate />} />
+                  <Route path="/players/edit/:id" element={<PostEdit />} />
                 </Route>
               </Route>
 
-              <Route
-                element={
-                  <Authenticated key="auth-pages" fallback={<Outlet />}>
-                    <NavigateToResource resource="posts" />
-                  </Authenticated>
-                }
-              >
-                <Route
-                  path="/login"
-                  element={
-                    <AuthPage
-                      type="login"
-                      formProps={{
-                        defaultValues: {
-                          email: "demo@refine.dev",
-                          password: "demodemo",
-                        },
-                      }}
-                    />
-                  }
-                />
-              </Route>
-
-              <Route
-                element={
-                  <Authenticated key="catch-all">
-                    <ThemedLayoutV2>
-                      <Outlet />
-                    </ThemedLayoutV2>
-                  </Authenticated>
-                }
-              >
-                <Route path="*" element={<ErrorComponent />} />
-              </Route>
+              <Route path="*" element={<ErrorComponent />} />
             </Routes>
             <RefineKbar />
             <UnsavedChangesNotifier />

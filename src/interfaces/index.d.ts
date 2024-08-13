@@ -1,8 +1,6 @@
-export interface IPost {
+export interface IPlayer {
   id: number;
-  title: string;
-  content: string;
-  category: any;
-  publishedAt: string;
-  createdAt: string;
+  name: string;
+  team: string;
+
 }

@@ -21,10 +21,10 @@ import { type ColumnDef, flexRender } from "@tanstack/react-table";
 import { Pagination } from "../../components/pagination";
 import { ColumnSorter } from "../../components/column-sorter";
 import { ColumnFilter } from "../../components/column-filter";
-import type { IPost } from "../../interfaces";
+import type { IPlayer } from "../../interfaces";
 
 export const PostList = () => {
-  const columns = React.useMemo<ColumnDef<IPost>[]>(
+  const columns = React.useMemo<ColumnDef<IPlayer>[]>(
     () => [
       {
         id: "id",
@@ -33,33 +33,26 @@ export const PostList = () => {
         meta: {
           filterOperator: "eq",
         },
+        enableSorting: true,
+        enableColumnFilter: true,
       },
       {
-        id: "title",
-        accessorKey: "title",
-        header: "Title",
+        id: "name",
+        accessorKey: "name",
+        header: "Name",
         meta: {
           filterOperator: "contains",
         },
+        enableSorting: true,
+        enableColumnFilter: true,
       },
+
       {
-        id: "category",
-        accessorKey: "category.title",
-        header: "Category",
-        cell: function render({ getValue }) {
-          return getValue();
-        },
-        meta: {
-          filterOperator: "contains",
-        },
-      },
-      {
-        id: "createdAt",
-        accessorKey: "createdAt",
-        header: "Created At",
-        cell: function render({ getValue }) {
-          return <DateField value={getValue() as string} format="LLL" />;
-        },
+        id: "team",
+        accessorKey: "team",
+        header: "Team",
+        enableSorting: true,
+        enableColumnFilter: true,
       },
       {
         id: "actions",
@@ -70,7 +63,6 @@ export const PostList = () => {
         cell: function render({ getValue }) {
           return (
             <HStack>
-              <ShowButton hideText recordItemId={getValue() as string} />
               <EditButton hideText recordItemId={getValue() as string} />
               <DeleteButton hideText recordItemId={getValue() as string} />
             </HStack>
@@ -78,7 +70,7 @@ export const PostList = () => {
         },
       },
     ],
-    [],
+    []
   );
 
   const {
@@ -90,7 +82,7 @@ export const PostList = () => {
     columns,
     refineCoreProps: {
       meta: {
-        populate: ["category"],
+        populate: ["name"],
       },
     },
   });
@@ -114,7 +106,7 @@ export const PostList = () => {
                     {!header.isPlaceholder &&
                       flexRender(
                         header.column.columnDef.header,
-                        header.getContext(),
+                        header.getContext()
                       )}
                     <ColumnSorter column={header.column} />
                     <ColumnFilter column={header.column} />
