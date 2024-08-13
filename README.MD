@@ -32,7 +32,7 @@
 
 ## Try this example on your local
 
-<p>Run local server first</p>
+<p>Run local server< first</p>
 
 ```bash
  npm run server
