@@ -32,9 +32,12 @@
 
 ## Try this example on your local
 
+<p>Run local server< first/p>
+
 ```bash
  npm run server
 ```
+
 
 ```bash
  npm run dev
