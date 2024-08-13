@@ -159,6 +159,26 @@
       "injuries": "Occasional minor injuries",
       "salary": 25000000,
       "marketValue": 70000000
+    },
+    {
+      "id": "10",
+      "name": "Gareth Bale",
+      "age": 35,
+      "position": "Winger",
+      "team": "Los Angeles FC",
+      "nationality": "Welsh",
+      "height": 185,
+      "weight": 83,
+      "goals": 200,
+      "assists": 100,
+      "appearances": 500,
+      "yellowCards": 50,
+      "redCards": 7,
+      "birthdate": "1989-07-16",
+      "contractEnd": "2024-12-31",
+      "injuries": "Frequent muscle injuries",
+      "salary": 15000000,
+      "marketValue": 30000000
     }
   ]
 }

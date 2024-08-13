@@ -1,12 +1,6 @@
 import React from "react";
 import { useTable } from "@refinedev/react-table";
-import {
-  List,
-  ShowButton,
-  EditButton,
-  DateField,
-  DeleteButton,
-} from "@refinedev/chakra-ui";
+import { List, EditButton, DeleteButton } from "@refinedev/chakra-ui";
 import {
   Table,
   Thead,
@@ -19,8 +13,6 @@ import {
 } from "@chakra-ui/react";
 import { type ColumnDef, flexRender } from "@tanstack/react-table";
 import { Pagination } from "../../components/pagination";
-import { ColumnSorter } from "../../components/column-sorter";
-import { ColumnFilter } from "../../components/column-filter";
 import type { IPlayer } from "../../interfaces";
 
 export const PostList = () => {
@@ -33,8 +25,8 @@ export const PostList = () => {
         meta: {
           filterOperator: "eq",
         },
-        enableSorting: true,
-        enableColumnFilter: true,
+        enableSorting: false,
+        enableColumnFilter: false,
       },
       {
         id: "name",
@@ -43,16 +35,16 @@ export const PostList = () => {
         meta: {
           filterOperator: "contains",
         },
-        enableSorting: true,
-        enableColumnFilter: true,
+        enableSorting: false,
+        enableColumnFilter: false,
       },
 
       {
         id: "team",
         accessorKey: "team",
         header: "Team",
-        enableSorting: true,
-        enableColumnFilter: true,
+        enableSorting: false,
+        enableColumnFilter: false,
       },
       {
         id: "actions",
@@ -108,8 +100,6 @@ export const PostList = () => {
                         header.column.columnDef.header,
                         header.getContext()
                       )}
-                    <ColumnSorter column={header.column} />
-                    <ColumnFilter column={header.column} />
                   </Th>
                 ))}
               </Tr>

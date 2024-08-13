@@ -1,31 +1,11 @@
-import React from "react";
 import { Create } from "@refinedev/chakra-ui";
 import { FormControl, FormLabel, Input, Box } from "@chakra-ui/react";
 
 import { useForm } from "@refinedev/react-hook-form";
-import * as yup from "yup";
+
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller } from "react-hook-form";
-
-const schema = yup.object().shape({
-  name: yup.string().required("Name is required"),
-  age: yup.number().required("Age is required").positive().integer(),
-  position: yup.string().required("Position is required"),
-  team: yup.string().required("Team is required"),
-  nationality: yup.string().required("Nationality is required"),
-  height: yup.number().required("Height is required"),
-  weight: yup.number().required("Weight is required"),
-  goals: yup.number().required("Goals are required"),
-  assists: yup.number().required("Assists are required"),
-  appearances: yup.number().required("Appearances are required"),
-  yellowCards: yup.number().required("Yellow Cards are required"),
-  redCards: yup.number().required("Red Cards are required"),
-  birthdate: yup.date().required("Birthdate is required"),
-  contractEnd: yup.date().required("Contract End is required"),
-  injuries: yup.string(),
-  salary: yup.number().required("Salary is required"),
-  marketValue: yup.number().required("Market Value is required"),
-});
+import { schema } from "../../validators/schemaValidator";
 
 export const PlayerCreate = () => {
   const {

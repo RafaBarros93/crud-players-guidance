@@ -10,17 +10,23 @@ export const dataProvider: DataProvider = {
             params: { _page: pagination?.current, _limit: pagination?.pageSize },
         });
 
-        return { data, total: data.length };
+        const total = parseInt(await (await axios.get(`${API_URL}/${resource}?_limit=1&_page=1`)).headers['x-total-count']);
+        return { data, total };
+
+
     },
     getOne: async ({ id, resource }) => {
 
         const { data } = await axios.get(`${API_URL}/${resource}/${id}`);
-        console.log(data)
+
         return { data };
     },
     create: async ({ resource, variables }) => {
 
         const { data } = await axios.post(`${API_URL}/${resource}`, variables);
+
+
+
         return { data };
     },
     update: async ({ resource, id, variables }) => {
