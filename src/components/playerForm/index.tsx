@@ -1,7 +1,6 @@
 import { FC, useEffect } from "react";
 import {
   Box,
-  Button,
   FormControl,
   FormLabel,
   Input,
@@ -11,6 +10,7 @@ import { Controller, Control, FieldValues, FieldErrors } from "react-hook-form";
 
 import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
+import { CurrencyInput } from "react-currency-mask";
 
 interface PlayerFormProps {
   control: Control<FieldValues>;
@@ -169,7 +169,15 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <Controller
           name="salary"
           control={control}
-          render={({ field }) => <Input type="number" {...field} />}
+          render={({ field }) => (
+            <CurrencyInput
+              value={field.value}
+              onChangeValue={(_, value) => {
+                field.onChange(value);
+              }}
+              InputElement={<Input {...field} />}
+            />
+          )}
         />
         <FormErrorMessage>{errors.salary?.message}</FormErrorMessage>
       </FormControl>
@@ -178,7 +186,15 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <Controller
           name="marketValue"
           control={control}
-          render={({ field }) => <Input type="number" {...field} />}
+          render={({ field }) => (
+            <CurrencyInput
+              value={field.value}
+              onChangeValue={(_, value) => {
+                field.onChange(value);
+              }}
+              InputElement={<Input {...field} />}
+            />
+          )}
         />
         <FormErrorMessage>{errors.marketValue?.message}</FormErrorMessage>
       </FormControl>

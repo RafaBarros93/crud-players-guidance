@@ -2,7 +2,7 @@
   "players": [
     {
       "marketValue": 400000000,
-      "salary": 60000000,
+      "salary": 120000,
       "injuries": "Minor injuries",
       "contractEnd": "2025-12-31T03:00:00.000Z",
       "birthdate": "1985-02-05T03:00:00.000Z",
