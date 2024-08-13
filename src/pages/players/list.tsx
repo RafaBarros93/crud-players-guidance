@@ -31,7 +31,7 @@ export const PostList = () => {
       {
         id: "name",
         accessorKey: "name",
-        header: "Name",
+        header: "Nome",
         meta: {
           filterOperator: "contains",
         },
@@ -42,7 +42,7 @@ export const PostList = () => {
       {
         id: "team",
         accessorKey: "team",
-        header: "Team",
+        header: "Time",
         enableSorting: false,
         enableColumnFilter: false,
       },

@@ -1,24 +1,24 @@
 {
   "players": [
     {
-      "id": "2",
-      "name": "Cristiano Ronaldo",
-      "age": 39,
-      "position": "Forward",
-      "team": "Al Nassr",
-      "nationality": "Portuguese",
-      "height": 187,
-      "weight": 83,
-      "goals": 750,
-      "assists": 250,
-      "appearances": 900,
-      "yellowCards": 65,
-      "redCards": 7,
-      "birthdate": "1985-02-05",
-      "contractEnd": "2025-12-31",
-      "injuries": "Minor injuries",
+      "marketValue": 400000000,
       "salary": 60000000,
-      "marketValue": 400000000
+      "injuries": "Minor injuries",
+      "contractEnd": "2025-12-31T03:00:00.000Z",
+      "birthdate": "1985-02-05T03:00:00.000Z",
+      "redCards": 7,
+      "yellowCards": 65,
+      "appearances": 900,
+      "assists": 250,
+      "goals": 750,
+      "weight": 83,
+      "height": 187,
+      "nationality": "Portuguese",
+      "team": "Cruzeiro",
+      "position": "Forward",
+      "age": 39,
+      "name": "Cristiano Ronaldo",
+      "id": "2"
     },
     {
       "id": "3",
@@ -139,26 +139,6 @@
       "injuries": "Occasional minor injuries",
       "salary": 20000000,
       "marketValue": 90000000
-    },
-    {
-      "id": "9",
-      "name": "Karim Benzema",
-      "age": 36,
-      "position": "Forward",
-      "team": "Al-Ittihad",
-      "nationality": "French",
-      "height": 185,
-      "weight": 81,
-      "goals": 400,
-      "assists": 150,
-      "appearances": 600,
-      "yellowCards": 70,
-      "redCards": 5,
-      "birthdate": "1987-12-19",
-      "contractEnd": "2025-06-30",
-      "injuries": "Occasional minor injuries",
-      "salary": 25000000,
-      "marketValue": 70000000
     }
   ]
 }
