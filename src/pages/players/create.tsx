@@ -29,7 +29,6 @@ const schema = yup.object().shape({
 
 export const PlayerCreate = () => {
   const {
-    handleSubmit,
     control,
     saveButtonProps,
     formState: { errors },
