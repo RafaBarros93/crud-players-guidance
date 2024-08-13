@@ -2,11 +2,13 @@ import { Create } from "@refinedev/chakra-ui";
 import { useForm } from "@refinedev/react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { schema } from "../../validators/schemaValidator";
+import { useSchema } from "../../hooks/useSchema";
 import PlayerForm from "../../components/playerForm";
 import { IPlayer } from "../../interfaces";
 
 export const PlayerCreate = () => {
+  const { schema } = useSchema();
+
   const {
     control,
     saveButtonProps,

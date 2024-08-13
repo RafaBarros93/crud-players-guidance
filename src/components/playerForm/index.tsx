@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import {
   Box,
   Button,
@@ -9,7 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { Controller, Control, FieldValues, FieldErrors } from "react-hook-form";
 
-import { IPlayer } from "../../interfaces";
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 
 interface PlayerFormProps {
   control: Control<FieldValues>;
@@ -17,10 +18,20 @@ interface PlayerFormProps {
 }
 
 const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    const changeLanguage = (lng: string) => {
+      i18n.changeLanguage(lng);
+    };
+
+    changeLanguage("pt");
+  }, []);
+
   return (
     <Box as="form">
       <FormControl isInvalid={!!errors.name}>
-        <FormLabel>Name</FormLabel>
+        <FormLabel>{t("name")}</FormLabel>
         <Controller
           name="name"
           control={control}
@@ -29,7 +40,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.name?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.age}>
-        <FormLabel>Age</FormLabel>
+        <FormLabel>{t("age")}</FormLabel>
         <Controller
           name="age"
           control={control}
@@ -38,7 +49,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.age?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.position}>
-        <FormLabel>Position</FormLabel>
+        <FormLabel>{t("position")}</FormLabel>
         <Controller
           name="position"
           control={control}
@@ -47,7 +58,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.position?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.team}>
-        <FormLabel>Team</FormLabel>
+        <FormLabel>{t("team")}</FormLabel>
         <Controller
           name="team"
           control={control}
@@ -56,7 +67,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.team?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.nationality}>
-        <FormLabel>Nationality</FormLabel>
+        <FormLabel>{t("nationality")}</FormLabel>
         <Controller
           name="nationality"
           control={control}
@@ -65,7 +76,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.nationality?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.height}>
-        <FormLabel>Height</FormLabel>
+        <FormLabel>{t("height")}</FormLabel>
         <Controller
           name="height"
           control={control}
@@ -74,7 +85,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.height?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.weight}>
-        <FormLabel>Weight</FormLabel>
+        <FormLabel>{t("weight")}</FormLabel>
         <Controller
           name="weight"
           control={control}
@@ -83,7 +94,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.weight?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.goals}>
-        <FormLabel>Goals</FormLabel>
+        <FormLabel>{t("goals")}</FormLabel>
         <Controller
           name="goals"
           control={control}
@@ -92,7 +103,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.goals?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.assists}>
-        <FormLabel>Assists</FormLabel>
+        <FormLabel>{t("assists")}</FormLabel>
         <Controller
           name="assists"
           control={control}
@@ -101,7 +112,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.assists?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.appearances}>
-        <FormLabel>Appearances</FormLabel>
+        <FormLabel>{t("appearances")}</FormLabel>
         <Controller
           name="appearances"
           control={control}
@@ -110,7 +121,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.appearances?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.yellowCards}>
-        <FormLabel>Yellow Cards</FormLabel>
+        <FormLabel>{t("yellowCards")}</FormLabel>
         <Controller
           name="yellowCards"
           control={control}
@@ -119,7 +130,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.yellowCards?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.redCards}>
-        <FormLabel>Red Cards</FormLabel>
+        <FormLabel>{t("redCards")}</FormLabel>
         <Controller
           name="redCards"
           control={control}
@@ -128,7 +139,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.redCards?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.birthdate}>
-        <FormLabel>Birthdate</FormLabel>
+        <FormLabel>{t("birthdate")}</FormLabel>
         <Controller
           name="birthdate"
           control={control}
@@ -137,7 +148,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.birthdate?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.contractEnd}>
-        <FormLabel>Contract End</FormLabel>
+        <FormLabel>{t("contractEnd")}</FormLabel>
         <Controller
           name="contractEnd"
           control={control}
@@ -146,7 +157,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.contractEnd?.message}</FormErrorMessage>
       </FormControl>
       <FormControl>
-        <FormLabel>Injuries</FormLabel>
+        <FormLabel>{t("injuries")}</FormLabel>
         <Controller
           name="injuries"
           control={control}
@@ -154,7 +165,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         />
       </FormControl>
       <FormControl isInvalid={!!errors.salary}>
-        <FormLabel>Salary</FormLabel>
+        <FormLabel>{t("salary")}</FormLabel>
         <Controller
           name="salary"
           control={control}
@@ -163,7 +174,7 @@ const PlayerForm: FC<PlayerFormProps> = ({ control, errors }) => {
         <FormErrorMessage>{errors.salary?.message}</FormErrorMessage>
       </FormControl>
       <FormControl isInvalid={!!errors.marketValue}>
-        <FormLabel>Market Value</FormLabel>
+        <FormLabel>{t("marketValue")}</FormLabel>
         <Controller
           name="marketValue"
           control={control}
