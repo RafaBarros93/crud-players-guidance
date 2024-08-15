@@ -49,7 +49,7 @@ export const PostList = () => {
       {
         id: "actions",
         accessorKey: "id",
-        header: "Actions",
+        header: "Ações",
         enableSorting: false,
         enableColumnFilter: false,
         cell: function render({ getValue }) {
@@ -86,6 +86,8 @@ export const PostList = () => {
     },
   }));
 
+  console.log(current);
+  console.log(pageCount);
   return (
     <List>
       <TableContainer whiteSpace="pre-line">

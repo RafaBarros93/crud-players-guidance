@@ -1,7 +1,27 @@
 {
   "players": [
     {
-      "id": "2",
+      "id": 1,
+      "name": "Lionel Messi",
+      "age": 37,
+      "position": "Forward",
+      "team": "Inter Miami",
+      "nationality": "Argentinian",
+      "height": 170,
+      "weight": 72,
+      "goals": 700,
+      "assists": 300,
+      "appearances": 850,
+      "yellowCards": 75,
+      "redCards": 5,
+      "birthdate": "1987-06-24",
+      "contractEnd": "2025-06-30",
+      "injuries": "Occasional muscle injuries",
+      "salary": 50000000,
+      "marketValue": 500000000
+    },
+    {
+      "id": 2,
       "name": "Cristiano Ronaldo",
       "age": 39,
       "position": "Forward",
@@ -21,7 +41,7 @@
       "marketValue": 400000000
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Kylian Mbappe",
       "age": 25,
       "position": "Forward",
@@ -41,7 +61,7 @@
       "marketValue": 150000000
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Neymar Jr",
       "age": 32,
       "position": "Forward",
@@ -61,7 +81,7 @@
       "marketValue": 120000000
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Kevin De Bruyne",
       "age": 33,
       "position": "Midfielder",
@@ -81,7 +101,7 @@
       "marketValue": 100000000
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Virgil van Dijk",
       "age": 33,
       "position": "Defender",
@@ -101,7 +121,7 @@
       "marketValue": 80000000
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "Sergio Ramos",
       "age": 38,
       "position": "Defender",
@@ -121,7 +141,7 @@
       "marketValue": 60000000
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "Joshua Kimmich",
       "age": 29,
       "position": "Midfielder",
@@ -141,7 +161,7 @@
       "marketValue": 90000000
     },
     {
-      "id": "9",
+      "id": 9,
       "name": "Karim Benzema",
       "age": 36,
       "position": "Forward",
@@ -161,7 +181,7 @@
       "marketValue": 70000000
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "Gareth Bale",
       "age": 35,
       "position": "Winger",

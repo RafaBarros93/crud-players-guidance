@@ -7,7 +7,7 @@
     "dev": "refine dev",
     "refine": "refine",
     "start": "refine start",
-    "server": "json-server --watch db.json --port 5000"
+    "server": "json-server --watch ./src/db.json --port 5000"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
